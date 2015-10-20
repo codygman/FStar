@@ -13,7 +13,7 @@ FORMAT_SRC=$(addprefix format/, $(FORMAT))
 EXTRACTION=ml-syntax.fs env.fs util.fs codegen.fsi codegen.fs extracttyp.fs extractexp.fs extractmod.fs
 EXTRACTION_SRC=$(addprefix extraction/, $(EXTRACTION))
 
-CEXTRACTION=pretty_print.fs c-syntax.fs c-extracttyp.fs c-extractmod.fs transform.fs
+CEXTRACTION=util.fs erase.fs pretty_print.fs c-syntax.fs c-extracttyp.fs c-extractmod.fs transform.fs
 CEXTRACTION_SRC=$(addprefix c-extraction/, $(CEXTRACTION))
 
 PARSER=ast.fs parseutil.fs parse.fs lexhelp.fs lex.fs dsenv.fsi dsenv.fs desugar.fsi desugar.fs parseit.fsi parseit.fs driver.fs
