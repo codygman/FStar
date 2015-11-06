@@ -65,7 +65,7 @@ let tc_one_file dsenv env fn =
 let tc_one_fragment curmod dsenv env frag =
     try
         match Parser.Driver.parse_fragment curmod dsenv frag with
-            | Parser.Driver.Empty -> 
+            | Parser.Driver.Empty ->
               Some (None, dsenv, env)
 
             | Parser.Driver.Modul (dsenv, modul) ->
@@ -135,7 +135,7 @@ let finished_message fmods =
             let tag = if m.is_interface then "i'face" else "module" in
             if Options.should_print_message m.name.str
             then Util.print_string (Util.format3 "%s %s: %s\n" msg tag (Syntax.text_of_lid m.name)));
-         print_string "All verification conditions discharged successfully\n"
+         print_string "\x1b[0;1mAll verification conditions discharged successfully\x1b[0m\n"
     end
 
 let interactive_mode dsenv env =
@@ -217,7 +217,7 @@ let interactive_mode dsenv env =
                     Util.fprint1 "%s\n" fail;
                     let dsenv, env = reset_mark dsenv_mark env_mark in
                     go stack curmod dsenv env in
-	            
+
                 let dsenv, env =
 		            if !should_read_build_config then
 		              if Util.starts_with text (Parser.ParseIt.get_bc_start_string ()) then

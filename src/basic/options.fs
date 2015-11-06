@@ -191,10 +191,10 @@ let display_usage specs =
        match p with
          | ZeroArgs ig ->
              if doc = "" then Util.print_string (Util.format1 "  --%s\n" flag)
-             else Util.print_string (Util.format2 "  \x1b[39;1m--%s\x1b[0m  %s\n" flag doc)
+             else Util.print_string (Util.format2 "  \x1b[0;1m--%s\x1b[0m  %s\n" flag doc)
          | OneArg (_, argname) ->
-             if doc = "" then Util.print_string (Util.format2 "  \x1b[39;1m--%s %s\x1b[0m\n" flag argname)
-             else Util.print_string (Util.format3 "  \x1b[39;1m--%s %s\x1b[0m  %s\n" flag argname doc))
+             if doc = "" then Util.print_string (Util.format2 "  \x1b[0;1m--%s %s\x1b[0m\n" flag argname)
+             else Util.print_string (Util.format3 "  \x1b[0;1m--%s %s\x1b[0m  %s\n" flag argname doc))
     specs
 
 let rec specs () : list<Getopt.opt> =
