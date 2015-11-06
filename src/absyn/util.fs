@@ -27,7 +27,9 @@ open FStar.Profiling
 let handle_err warning ret e =
   match e with
     | Error(msg, r) ->
-        Util.print_string (Util.format3 "%s : %s\n%s\n" (Range.string_of_range r) (if warning then "Warning" else "Error") msg);
+        let cs = if warning then "\x1b[36;1m" else "\x1b[31;1m" in
+        let ce = "\x1b[0m" in
+        Util.print_string (Util.format5 "%s%s : %s\n%s%s\n" cs (Range.string_of_range r) (if warning then "Warning" else "Error") msg ce);
         ret
     | NYI s ->
         Util.print_string (Util.format1 "Feature not yet implemented: %s" s);
