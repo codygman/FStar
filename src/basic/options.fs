@@ -95,10 +95,10 @@ let _include_path = Util.mk_ref []
 let interactive_fsi = Util.mk_ref false
 let print_fuels = Util.mk_ref false
 let cardinality = Util.mk_ref "off"
-let warn_cardinality () = match !cardinality with 
+let warn_cardinality () = match !cardinality with
     | "warn" -> true
     | _ -> false
-let check_cardinality () = match !cardinality with 
+let check_cardinality () = match !cardinality with
     | "check" -> true
     | _ -> false
 let __temp_no_proj = Util.mk_ref false
@@ -191,10 +191,10 @@ let display_usage specs =
        match p with
          | ZeroArgs ig ->
              if doc = "" then Util.print_string (Util.format1 "  --%s\n" flag)
-             else Util.print_string (Util.format2 "  --%s  %s\n" flag doc)
+             else Util.print_string (Util.format2 "  \x1b[39;1m--%s\x1b[0m  %s\n" flag doc)
          | OneArg (_, argname) ->
-             if doc = "" then Util.print_string (Util.format2 "  --%s %s\n" flag argname)
-             else Util.print_string (Util.format3 "  --%s %s  %s\n" flag argname doc))
+             if doc = "" then Util.print_string (Util.format2 "  \x1b[39;1m--%s %s\x1b[0m\n" flag argname)
+             else Util.print_string (Util.format3 "  \x1b[39;1m--%s %s\x1b[0m  %s\n" flag argname doc))
     specs
 
 let rec specs () : list<Getopt.opt> =
@@ -260,7 +260,7 @@ and parse_codegen s =
      (Util.print_string "Wrong argument to codegen flag\n";
       display_usage (specs ()); exit 1)
 and validate_cardinality x = match x with
-    | "warn" 
+    | "warn"
     | "check"
     | "off" -> x
     | _ ->   (Util.print_string "Wrong argument to cardinality flag\n";
@@ -277,12 +277,12 @@ let should_verify m =
         | [] -> true //the verify_module flag was not set, so verify everything
         | l -> List.contains m l) //otherwise, look in the list to see if it is explicitly mentioned
 
-let should_print_message m = 
-    should_verify m 
-    && not (List.contains m !admit_fsi) 
+let should_print_message m =
+    should_verify m
+    && not (List.contains m !admit_fsi)
     && m <> "Prims"
 
-let set_options = 
+let set_options =
     //The smt option is a security concern
     //only allow it to be set from the command line, not from the build-config
     let no_smt_specs = specs() |> List.filter (fun (_, name, _, _) -> name <> "smt") in
