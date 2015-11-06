@@ -343,16 +343,16 @@ if (doc = "") then begin
 (let _86_57 = (FStar_Util.format1 "  --%s\n" flag)
 in (FStar_Util.print_string _86_57))
 end else begin
-(let _86_58 = (FStar_Util.format2 "  --%s  %s\n" flag doc)
+(let _86_58 = (FStar_Util.format2 "  \x1b[39;1m--%s\x1b[0m  %s\n" flag doc)
 in (FStar_Util.print_string _86_58))
 end
 end
 | FStar_Getopt.OneArg (_21_167, argname) -> begin
 if (doc = "") then begin
-(let _86_60 = (FStar_Util.format2 "  --%s %s\n" flag argname)
+(let _86_60 = (FStar_Util.format2 "  \x1b[39;1m--%s %s\x1b[0m\n" flag argname)
 in (FStar_Util.print_string _86_60))
 end else begin
-(let _86_61 = (FStar_Util.format3 "  --%s %s  %s\n" flag argname doc)
+(let _86_61 = (FStar_Util.format3 "  \x1b[39;1m--%s %s\x1b[0m  %s\n" flag argname doc)
 in (FStar_Util.print_string _86_61))
 end
 end)
