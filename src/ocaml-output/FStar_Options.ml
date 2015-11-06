@@ -374,8 +374,8 @@ end else begin
 (FStar_All.failwith "Invalid argument to --admit_smt_queries")
 end
 end
-in (FStar_ST.op_Colon_Equals admit_smt_queries _86_76))), "true|false")), "Admit SMT queries (UNSAFE! But, useful during development); default: \'false\'"))::((FStar_Getopt.noshort, "cardinality", FStar_Getopt.OneArg (((fun x -> (let _86_80 = (validate_cardinality x)
-in (FStar_ST.op_Colon_Equals cardinality _86_80))), "off|warn|check")), "Check cardinality constraints on inductive data types(default \'off\')"))::((FStar_Getopt.noshort, "codegen", FStar_Getopt.OneArg (((fun s -> (let _86_84 = (parse_codegen s)
+in (FStar_ST.op_Colon_Equals admit_smt_queries _86_76))), "true|false")), "Admit SMT queries, useful for development \x1b[31;1m(UNSAFE!)\x1b[0m (default \'false\')"))::((FStar_Getopt.noshort, "cardinality", FStar_Getopt.OneArg (((fun x -> (let _86_80 = (validate_cardinality x)
+in (FStar_ST.op_Colon_Equals cardinality _86_80))), "off|warn|check")), "Check cardinality constraints on inductive data types (default \'off\')"))::((FStar_Getopt.noshort, "codegen", FStar_Getopt.OneArg (((fun s -> (let _86_84 = (parse_codegen s)
 in (FStar_ST.op_Colon_Equals codegen _86_84))), "OCaml|FSharp")), "Generate code for execution"))::((FStar_Getopt.noshort, "codegen-lib", FStar_Getopt.OneArg (((fun s -> (let _86_89 = (let _86_88 = (FStar_ST.read codegen_libs)
 in ((FStar_Util.split s "."))::_86_88)
 in (FStar_ST.op_Colon_Equals codegen_libs _86_89))), "namespace")), "External runtime library library"))::((FStar_Getopt.noshort, "debug", FStar_Getopt.OneArg (((fun x -> (let _86_94 = (let _86_93 = (FStar_ST.read debug)
@@ -394,7 +394,7 @@ end))), "Allow the use of t<t1,...,tn> syntax for type applications; brittle sin
 end))), "fsi flag; A flag to indicate if type checking a fsi in the interactive mode"))::((FStar_Getopt.noshort, "fstar_home", FStar_Getopt.OneArg (((fun x -> (FStar_ST.op_Colon_Equals fstar_home_opt (Some (x)))), "dir")), "Set the FSTAR_HOME variable to dir"))::((FStar_Getopt.noshort, "full_context_dependency", FStar_Getopt.ZeroArgs ((fun _21_185 -> (match (()) with
 | () -> begin
 (FStar_ST.op_Colon_Equals full_context_dependency true)
-end))), "Introduce unification variables that are dependent on the entire context (possibly expensive, but better for type inference (on, by default)"))::((FStar_Getopt.noshort, "hide_genident_nums", FStar_Getopt.ZeroArgs ((fun _21_186 -> (match (()) with
+end))), "Introduce unification variables that are dependent on the entire context (possibly expensive, but better for type inference)"))::((FStar_Getopt.noshort, "hide_genident_nums", FStar_Getopt.ZeroArgs ((fun _21_186 -> (match (()) with
 | () -> begin
 (FStar_ST.op_Colon_Equals hide_genident_nums true)
 end))), "Don\'t print generated identifier numbers"))::((FStar_Getopt.noshort, "hide_uvar_nums", FStar_Getopt.ZeroArgs ((fun _21_187 -> (match (()) with
@@ -453,7 +453,7 @@ in (x)::_86_163)
 in (FStar_ST.op_Colon_Equals show_signatures _86_164))), "module name")), "Show the checked signatures for all top-level symbols in the module"))::((FStar_Getopt.noshort, "silent", FStar_Getopt.ZeroArgs ((fun _21_213 -> (match (()) with
 | () -> begin
 (FStar_ST.op_Colon_Equals silent true)
-end))), ""))::((FStar_Getopt.noshort, "smt", FStar_Getopt.OneArg (((fun x -> (FStar_ST.op_Colon_Equals z3_exe x)), "path")), "Path to the SMT solver (usually Z3, but could be any SMT2-compatible solver)"))::((FStar_Getopt.noshort, "split_cases", FStar_Getopt.OneArg (((fun n -> (let _86_172 = (FStar_Util.int_of_string n)
+end))), " "))::((FStar_Getopt.noshort, "smt", FStar_Getopt.OneArg (((fun x -> (FStar_ST.op_Colon_Equals z3_exe x)), "path")), "Path to the SMT solver (usually Z3, but could be any SMT2-compatible solver)"))::((FStar_Getopt.noshort, "split_cases", FStar_Getopt.OneArg (((fun n -> (let _86_172 = (FStar_Util.int_of_string n)
 in (FStar_ST.op_Colon_Equals split_cases _86_172))), "t")), "Partition VC of a match into groups of n cases"))::((FStar_Getopt.noshort, "trace_error", FStar_Getopt.ZeroArgs ((fun _21_216 -> (match (()) with
 | () -> begin
 (FStar_ST.op_Colon_Equals trace_error true)
